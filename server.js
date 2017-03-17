@@ -3,7 +3,7 @@ var app = express();
 var sql = require('mssql');
 
 app.get('/', function(req, res) {
-    res.send('Hello World!')
+    res.send('Hello WorldMM!')
 })
 
 app.listen(process.env.PORT||8080, function() {
