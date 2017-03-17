@@ -1,31 +1,11 @@
-/*var express = require('express');
-var app = express();
-var sql = require('mssql');
+var fs = require('fs'),
+http = require('http');
 
-app.get('/', function(req, res) {
-    res.send('Hello World!')
-})
 
-app.listen(80, function() {
-    console.log('Example app listening on port 3000!')
-})
-
-var config = {
-
-    user: 'kasun@trainmate',
-    password: 'Trainmate123',
-    server: 'trainmate.database.windows.net',
-    database: 'trainmate',
-    options: {
-        encrypt: true
-    }
+	var httpServer = http.createServer(onRequest).listen(process.env.PORT ||80, function(){
+		console.log("Listening at: http://localhost:80");
+		console.log("Server is up");
+	});
+	//serialListener(debug);
+	initSocketIO(httpServer,debug);
 }
-
-sql.connect(config).then(function() {
-    console.log('opening connection');
-    new sql.Request().query('Select * from customers').then(function(recordset) {
-        console.dir(recordset);
-    }).catch(function(error) {
-
-    });
-});*/
