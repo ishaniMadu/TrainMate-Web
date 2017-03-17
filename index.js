@@ -6,6 +6,4 @@ http = require('http');
 		console.log("Listening at: http://localhost:80");
 		console.log("Server is up");
 	});
-	//serialListener(debug);
-	initSocketIO(httpServer,debug);
-}
+
