@@ -12,7 +12,7 @@ app.listen(process.env.PORT||80, function() {
 
 var config = {
 
-    user: 'kasun@trainmate',
+    user: 'kasun@trainmateB',
     password: 'Trainmate123',
     server: 'trainmate.database.windows.net',
     database: 'trainmate',
