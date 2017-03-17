@@ -1,4 +1,4 @@
-var express = require('express');
+/*var express = require('express');
 var app = express();
 var sql = require('mssql');
 
@@ -28,4 +28,4 @@ sql.connect(config).then(function() {
     }).catch(function(error) {
 
     });
-});
+});*/
