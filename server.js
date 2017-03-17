@@ -1,8 +1,31 @@
-var http = require('http');
+var express = require('express');
+var app = express();
+var sql = require('mssql');
 
-http.createServer(function (req, res) {
-    
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.end('Hello, world!');
-    
-}).listen(process.env.PORT || 8080);
+app.get('/', function(req, res) {
+    res.send('Hello World!')
+})
+
+app.listen(process.env.PORT||8080, function() {
+    console.log('Example app listening on port 3000!')
+})
+
+var config = {
+
+    user: 'kasun@trainmate',
+    password: 'Trainmate123',
+    server: 'trainmate.database.windows.net',
+    database: 'trainmate',
+    options: {
+        encrypt: true
+    }
+}
+
+sql.connect(config).then(function() {
+    console.log('opening connection');
+    new sql.Request().query('Select * from customers').then(function(recordset) {
+        console.dir(recordset);
+    }).catch(function(error) {
+
+    });
+});
