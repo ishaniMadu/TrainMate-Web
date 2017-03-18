@@ -1,11 +1,13 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
 var sql = require('mssql');
 
-var bodyParser = require('body-parser');
-
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
+app.use(bodyParser.json());
+
 
 app.get('/', function(req, res) {
     res.send('Hello World!')
@@ -14,7 +16,7 @@ app.get('/', function(req, res) {
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:80');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8100');
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -34,8 +36,8 @@ app.post('/server.js', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
    res.send('Hello one!')
    response = {
-      first_name:req.body.first_name,
-      last_name:req.body.last_name
+      email:req.body.email,
+      password:req.body.password
    };
    console.log(response);
    res.end(JSON.stringify(response));
