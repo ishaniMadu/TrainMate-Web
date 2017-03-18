@@ -5,10 +5,39 @@ var sql = require('mssql');
 
 var app = express();
 
-var request = new sql.Request(connection);
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
-request.query('select * from customers', function(err, rs) {
-    rs.forEach(function(row) {
-        console.log("ff");
-    });
+app.use(bodyParser.json());
+
+app.use(function (req, res, next) {
+
+    // Website you wish to allow to connect
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8100');
+
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+
+    // Pass to next layer of middleware
+    next();
 });
+
+app.post('/login.js', urlencodedParser, function(req, res) {
+
+    var email= req.body.email;
+    var password= req.body.password;
+
+    var request = new sql.Request(connection);
+
+    request.query('select * from customers where name = ${email} ', function(err, rs) {
+        console.dir(rs);
+    });
+    console.log(response);
+    res.end(JSON.stringify(response));
+})

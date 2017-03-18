@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var connection = require('./database').db_connection;
 var app = express();
 var sql = require('mssql');
 
@@ -7,6 +8,7 @@ var sql = require('mssql');
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(bodyParser.json());
+
 
 
 app.get('/', function(req, res) {
@@ -32,22 +34,36 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.post('/server.js', urlencodedParser, function (req, res) {
-   // Prepare output in JSON format
-   res.send('Hello one!')
-   response = {
-      email:req.body.email,
-      password:req.body.password
-   };
-   console.log(response);
-   res.end(JSON.stringify(response));
+app.post('/server.js', urlencodedParser, function(req, res) {
+
+    var email= req.body.email;
+    var password= req.body.password;
+
+    sql.connect(connection).then(function() {
+        console.log('opening connection');
+        new sql.Request().query("Select * from customers WHERE NAME='"+email+"'").then(function(recordset) {
+            console.dir(recordset);
+          if(recordset.length>0){
+              res.send('Hello World!')
+              console.dir(recordset.length);
+            return 'valid';
+          }else{
+            return 'invalid';
+          }
+        }).catch(function(error) {
+
+        });
+    });
+
 })
+
 
 app.listen(process.env.PORT||80, function() {
     console.log('Example app listening on port 3000!')
 })
 
-var config = {
+
+/*var config = {
 
     user: 'kasun@trainmate',
     password: 'Trainmate123',
@@ -65,4 +81,4 @@ sql.connect(config).then(function() {
     }).catch(function(error) {
 
     });
-});
+});*/
