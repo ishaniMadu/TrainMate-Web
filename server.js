@@ -2,15 +2,15 @@ var express = require('express');
 var app = express();
 var sql = require('mssql');
 
+var bodyParser = require('body-parser');
+
+// Create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+
 app.get('/', function(req, res) {
     res.send('Hello World!')
 })
 
-app.post('/', function(req, res) {
-    res.send('Hello one!')
-})
-
-// Add headers
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -29,6 +29,17 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
+
+app.post('/server.js', urlencodedParser, function (req, res) {
+   // Prepare output in JSON format
+   res.send('Hello one!')
+   response = {
+      first_name:req.body.first_name,
+      last_name:req.body.last_name
+   };
+   console.log(response);
+   res.end(JSON.stringify(response));
+})
 
 app.listen(process.env.PORT||80, function() {
     console.log('Example app listening on port 3000!')
