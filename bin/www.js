@@ -30,6 +30,9 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+app.get('/', function (req, res) {
+  res.send('hello world')
+})
 //var debug = false;
 initSocketIO(server,false);
 
@@ -113,7 +116,3 @@ function initSocketIO(httpServer,debug)
 
     });
 }
-
-app.get('/', function (req, res) {
-  res.send('hello world')
-})
