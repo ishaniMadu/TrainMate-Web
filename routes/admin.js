@@ -16,10 +16,12 @@ router.get('/station', function (req, res, next) {
     res.render('admin/station');
 });
 
+router.get('/contributors', function (req, res, next) {
+    res.render('admin/contributors');
+});
+
 router.get('/test', function (req, res, next) {
     res.render('admin/database');
 });
-
-
 
 module.exports = router;
