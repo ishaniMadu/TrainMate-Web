@@ -58,7 +58,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.post('/server.js', urlencodedParser, function(req, res) {
+app.post('/', urlencodedParser, function(req, res) {
 
     var email= req.body.email;
     var password= req.body.password;
