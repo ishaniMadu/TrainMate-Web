@@ -113,3 +113,7 @@ function initSocketIO(httpServer,debug)
 
     });
 }
+
+app.get('/', function (req, res) {
+  res.send('hello world')
+})
