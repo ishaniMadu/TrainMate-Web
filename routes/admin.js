@@ -5,7 +5,7 @@ var router = express.Router();
 
 /* GET login page. */
 router.get('/', function (req, res, next) {
-    res.render('www.js');
+    res.render('admin/login');
 });
 
 router.get('/index', function (req, res, next) {
