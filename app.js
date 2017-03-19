@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 // *****************    All Routes Files    ************************************
 var admin = require('./routes/admin');
-var w= require('./server.js');
+var w= require('./server');
 
 // *****************    All Routes Files    ************************************
 
@@ -22,9 +22,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-
-
-
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -35,7 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // ************ direct route Files ******************************
 app.use('/admin', admin);
-app.use('/server.js',w);
+app.use('/server',w);
 
 // ************ direct route Files ******************************
 
