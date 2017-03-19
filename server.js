@@ -55,9 +55,9 @@ app.post('/server.js', urlencodedParser, function(req, res) {
 })
 
 
-app.listen(process.env.PORT||80, function() {
+/*app.listen(process.env.PORT||80, function() {
     console.log('Example app listening on port 3000!')
-})
+})*/
 
 
 /*var config = {
