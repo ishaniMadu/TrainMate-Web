@@ -41,7 +41,7 @@ app.post('/server.js', urlencodedParser, function(req, res) {
         new sql.Request().query("Select * from customers WHERE NAME='"+email+"'").then(function(recordset) {
             console.dir(recordset);
           if(recordset.length>0){
-              //res.send('Hello World!')
+              res.send(recordset);
               //conole.dir(recordset.length);
             return 'valid';
           }else{
