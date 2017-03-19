@@ -9,8 +9,9 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(bodyParser.json());
 
-
-
+app.get('/', function (req, res) {
+  res.send('hello world')
+})
 
 app.use(function (req, res, next) {
 
@@ -42,10 +43,9 @@ app.post('/server.js', urlencodedParser, function(req, res) {
             console.dir(recordset);
           if(recordset.length>0){
               res.send(recordset);
-              //conole.dir(recordset.length);
-            return 'valid';
+
           }else{
-            return 'invalid';
+
           }
         }).catch(function(error) {
 
