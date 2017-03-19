@@ -50,7 +50,6 @@ app.post('/server.js', urlencodedParser, function(req, res) {
 
 })
 
-module.exports = server;
 
 
 /*app.listen(process.env.PORT||80, function() {
