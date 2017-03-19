@@ -9,9 +9,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
-  res.send('hello world')
-})
+
 
 app.use(function (req, res, next) {
 
