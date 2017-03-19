@@ -108,3 +108,5 @@ function initSocketIO(httpServer,debug)
 
     });
 }
+
+module.exports = www;
