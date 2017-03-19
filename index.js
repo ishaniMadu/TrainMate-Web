@@ -1,5 +1,5 @@
 var module1=require('./www');
-var module1=require('./server');
+var module2=require('./server');
 
 module1();
 module2();
