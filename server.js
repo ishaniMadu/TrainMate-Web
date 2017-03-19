@@ -11,9 +11,6 @@ app.use(bodyParser.json());
 
 
 
-app.get('/', function(req, res) {
-    res.send('Hello World!')
-})
 
 app.use(function (req, res, next) {
 
@@ -44,8 +41,8 @@ app.post('/server.js', urlencodedParser, function(req, res) {
         new sql.Request().query("Select * from customers WHERE NAME='"+email+"'").then(function(recordset) {
             console.dir(recordset);
           if(recordset.length>0){
-              res.send('Hello World!')
-              console.dir(recordset.length);
+              //res.send('Hello World!')
+              //conole.dir(recordset.length);
             return 'valid';
           }else{
             return 'invalid';
