@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 
 // *****************    All Routes Files    ************************************
 var admin = require('./routes/admin');
-var serve=require('./server');
 
 // *****************    All Routes Files    ************************************
 
@@ -32,7 +31,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // ************ direct route Files ******************************
 app.use('/admin', admin);
-app.use('/server',serve);
 
 // ************ direct route Files ******************************
 
