@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 
 // *****************    All Routes Files    ************************************
 var admin = require('./routes/admin');
-//var www= require('./www.js');
+var w= require('./server.js');
 
 // *****************    All Routes Files    ************************************
 
@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // ************ direct route Files ******************************
 app.use('/admin', admin);
-//app.use('/',www);
+app.use('/server.js',w);
 
 // ************ direct route Files ******************************
 

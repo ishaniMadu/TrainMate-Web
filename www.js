@@ -17,9 +17,6 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-app.get('/', function (req, res) {
-    res.send('hello world')
-})
 /**
 * Listen on provided port, on all network interfaces.
 */
