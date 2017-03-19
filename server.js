@@ -9,8 +9,6 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(bodyParser.json());
 
-
-
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect

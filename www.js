@@ -1,5 +1,6 @@
 
 var app = require('./app');
+var serve=require('./server');
 var debug = require('debug')('trainmate:server');
 var http = require('http');
 var socketio = require('socket.io');
