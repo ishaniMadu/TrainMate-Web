@@ -124,27 +124,36 @@
                             <script>
                             var markers=[];
                             function addMarker(id,name,longitude,latitude){
-                                var data={id,name,longitude,latitude};
+                                var data={id,name,latitude,longitude};
                                 markers.push(data);
                                 alert(markers.length);
                             }
 
 
-                            function initsss_Map(longitude,latitude) {
-                                alert(longitude+" "+latitude);
-                                var uluru = {lat: latitude, lng: longitude};
+                            function init_Map(longitude,latitude) {
+
                                 var map = new google.maps.Map(document.getElementById('map'), {
                                     zoom: 4,
-                                    center: uluru
+                                    center: {lat: markers[0][2], lng: markers[0][3]}
                                 });
-                                var marker = new google.maps.Marker({
-                                    position: uluru,
-                                    map: map
-                                });
+
+                                markerSet=[];
+
+                                for(i=0;i<markers.length;i++){
+
+                                    var marker = new google.maps.Marker({
+                                        position: {lat: markers[i][2], lng: markers[i][3]},
+                                        map: map
+                                    });
+
+                                    markerSet.push(marker);
+                                    marker.setMap(map);
+                                }
+
                             }
 
                             function show(){
-                                alert('ok');
+                                init_Map();
                             }
                             </script>
                             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaHFhfmh2EbYbXoCsldyTfWbs3thk_Ql0&callback=initMap" type="text/javascript"></script>
