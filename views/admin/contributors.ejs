@@ -77,6 +77,7 @@
             <!-- end breadcrumb -->
 
             <h1 id="js" class="page-header">Contributors</h1>
+            <button type="button" class="btn btn-success" onclick="show()">Show on Map</button>
 
             <div class="row">
                 <!-- begin col-12 -->
@@ -140,6 +141,10 @@
                                     position: uluru,
                                     map: map
                                 });
+                            }
+
+                            function show(){
+                                alert('ok');
                             }
                             </script>
                             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaHFhfmh2EbYbXoCsldyTfWbs3thk_Ql0&callback=initMap" type="text/javascript"></script>
