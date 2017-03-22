@@ -123,13 +123,13 @@
                             <script>
                             var markers=[];
                             function addMarker(id,name,longitude,latitude){
-                                var data={{id,name,longitude,latitude}}
+                                var data={id,name,longitude,latitude};
                                 markers.push(data);
                                 alert(markers.length);
                             }
 
 
-                            function inits_Map(longitude,latitude) {
+                            function initsss_Map(longitude,latitude) {
                                 alert(longitude+" "+latitude);
                                 var uluru = {lat: latitude, lng: longitude};
                                 var map = new google.maps.Map(document.getElementById('map'), {
