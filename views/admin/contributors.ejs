@@ -143,7 +143,7 @@
 
                                 for(i=0;i<markers.length;i++){
 
-                                    var contentString='<div id="content">'+
+                                    var content='<div id="content">'+
                                     '<div id="siteNotice">'+
                                     '</div>'+
                                     '<h1 id="firstHeading" class="firstHeading">'+markers[i][1]+'</h1>'+
@@ -152,19 +152,19 @@
                                     '</div>'+
                                     '</div>';
 
-                                    windows[i] = new google.maps.InfoWindow({
-                                        content: contentString,
-                                        maxWidth: 200
-                                    });
-
-                                    m[i] = new google.maps.Marker({
+                                    var marker= new google.maps.Marker({
                                         position: {lat: markers[i][2], lng: markers[i][3]},
                                         map: map
                                     });
 
-                                    m[i].addListener('click', function() {
-                                        windows[i].open(map, m[i]);
-                                    });
+                                    var infowindow = new google.maps.InfoWindow();
+
+                                    google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+                                        return function() {
+                                            infowindow.setContent(content);
+                                            infowindow.open(map,marker);
+                                        };
+                                    })(marker,content,infowindow));
 
                                     markerSet.push(marker);
                                     marker.setMap(map);
