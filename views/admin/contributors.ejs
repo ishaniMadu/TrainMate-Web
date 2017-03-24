@@ -138,6 +138,8 @@
                                 });
 
                                 markerSet=[];
+                                windows=[];
+                                m=[];
 
                                 for(i=0;i<markers.length;i++){
 
@@ -150,22 +152,24 @@
                                     '</div>'+
                                     '</div>';
 
-                                    var infowindow = new google.maps.InfoWindow({
+                                    windows[i] = new google.maps.InfoWindow({
                                         content: contentString,
                                         maxWidth: 200
                                     });
 
-                                    var marker = new google.maps.Marker({
+                                    m[i] = new google.maps.Marker({
                                         position: {lat: markers[i][2], lng: markers[i][3]},
                                         map: map
+                                    });
+
+                                    m[i].addListener('click', function() {
+                                        windows[i].open(map, m[i]);
                                     });
 
                                     markerSet.push(marker);
                                     marker.setMap(map);
 
-                                    markerSet[i].addListener('click', function() {
-                                        infowindow.open(map, marker);
-                                    });
+
 
                                 }
 
