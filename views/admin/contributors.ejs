@@ -123,6 +123,8 @@
 
                             //var map=null;
                             var markers=[];
+                            markerSet=[];
+
 
                             function addMarker(id,name,longitude,latitude){
                                 var data=[id,name,latitude,longitude];
@@ -137,8 +139,6 @@
                                     zoom: 12,
                                     center: {lat: markers[0][2], lng: markers[0][3]}
                                 });
-
-                                markerSet=[];
 
                                 for(i=0;i<markers.length;i++){
 
@@ -159,7 +159,7 @@
                                         };
                                     })(marker,content,infowindow));
 
-                                    markers.push(marker);
+                                    markerSet.push(marker);
                                     marker.setMap(map);
 
 
@@ -172,7 +172,7 @@
 
                                 for(i=0;i<markers.length;i++){
                                     //markers[i].setMap(null);
-                                //    markers[i].setMap(map);
+                                    //    markers[i].setMap(map);
                                 }
 
                             }
