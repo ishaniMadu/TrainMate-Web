@@ -21,9 +21,10 @@
     <script src="http://trainmate18.azurewebsites.net:80/socket.io/socket.io.js"></script>
 
     <script>
+    var i=0;
     function initSocketIO() {
         iosocket = io.connect();
-i=0;
+
         iosocket.on('updates', function(receivedData) {
 
             var arr = Object.values(receivedData);
@@ -33,7 +34,7 @@ i=0;
                 add(arr[0],arr[1],arr[2],arr[3]);
                 //alert('ss');
             }else{
-                i++;
+                i=i+1;
                 $('#js').html(i)
                 //update();
             }
