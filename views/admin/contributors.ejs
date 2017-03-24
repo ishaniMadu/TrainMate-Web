@@ -121,7 +121,7 @@
                             <div id="map"></div>
                             <script>
 
-                            var map=null;
+                            //var map=null;
                             var markers=[];
 
                             function addMarker(id,name,longitude,latitude){
@@ -133,7 +133,7 @@
 
                             function init_Map() {
 
-                                map = new google.maps.Map(document.getElementById('map'), {
+                                var map = new google.maps.Map(document.getElementById('map'), {
                                     zoom: 12,
                                     center: {lat: markers[0][2], lng: markers[0][3]}
                                 });
@@ -172,7 +172,7 @@
 
                                 for(i=0;i<markers.length;i++){
                                     markers[i].setMap(null);
-                                    markers[i].setMap(map);
+                                //    markers[i].setMap(map);
                                 }
 
                             }
