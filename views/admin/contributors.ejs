@@ -123,7 +123,6 @@
 
                             //var map=null;
                             var markers=[];
-                            markerSet=[];
 
 
                             function addMarker(id,name,longitude,latitude){
@@ -139,6 +138,8 @@
                                     zoom: 12,
                                     center: {lat: markers[0][2], lng: markers[0][3]}
                                 });
+                                markerSet=[];
+
 
                                 for(i=0;i<markers.length;i++){
 
