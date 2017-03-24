@@ -143,10 +143,29 @@
 
                                 for(i=0;i<markers.length;i++){
 
+                                    var contentString='<div id="content">'+
+                                    '<div id="siteNotice">'+
+                                    '</div>'+
+                                    '<h1 id="firstHeading" class="firstHeading">'+markers[i][1]+'</h1>'+
+                                    '<div id="bodyContent">'+
+                                    '<p></p>'
+                                    '</div>'+
+                                    '</div>';
+
+                                    var infowindow = new google.maps.InfoWindow({
+                                        content: contentString,
+                                        maxWidth: 200
+                                    });
+
                                     var marker = new google.maps.Marker({
                                         position: {lat: markers[i][2], lng: markers[i][3]},
                                         map: map
                                     });
+
+                                    marker.addListener('click', function() {
+                                        infowindow.open(map, marker);
+                                    });
+
 
                                     markerSet.push(marker);
                                     marker.setMap(map);
@@ -158,7 +177,7 @@
                                 init_Map();
                             }
                             </script>
-                            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaHFhfmh2EbYbXoCsldyTfWbs3thk_Ql0&callback=initMap" type="text/javascript"></script>
+                            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaHFhfmh2EbYbXoCsldyTfWbs3thk_Ql0&callback=init_Map" type="text/javascript"></script>
 
                         </div>
                     </div>
