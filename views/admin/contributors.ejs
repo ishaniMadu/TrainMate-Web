@@ -34,7 +34,6 @@
                 add(arr[0],arr[1],arr[2],arr[3]);
                 //alert('ss');
             }else{
-alert('da');
                 update();
             }
 
@@ -167,8 +166,11 @@ alert('da');
                             }
 
                             function update(){
-                                markerSet[0].setMap(null);
-                                markerSet[0].setMap(map);
+
+                                for(i=0;i<markerSet.length;i++){
+                                    markerSet[0].setMap(null);
+                                    markerSet[0].setMap(map);
+                                }
 
                             }
 
