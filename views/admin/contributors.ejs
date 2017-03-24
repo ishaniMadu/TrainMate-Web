@@ -21,7 +21,7 @@
     <script src="http://trainmate18.azurewebsites.net:80/socket.io/socket.io.js"></script>
 
     <script>
-    var i=0;
+
     function initSocketIO() {
         iosocket = io.connect();
 
@@ -34,9 +34,8 @@
                 add(arr[0],arr[1],arr[2],arr[3]);
                 //alert('ss');
             }else{
-                i=i+1;
-                $('#js').html(i)
-                //update();
+
+                update();
             }
 
         });
@@ -113,7 +112,7 @@
 
                                     function update(){
 
-                                        //init_Map();
+                                        init_Map();
 
                                     }
                                     </script>
