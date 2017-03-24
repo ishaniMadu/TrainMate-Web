@@ -138,19 +138,11 @@
                                 });
 
                                 markerSet=[];
-                                windows=[null,null,null];
-                                m=[null,null,null];
 
                                 for(i=0;i<markers.length;i++){
 
-                                    var content='<div id="content">'+
-                                    '<div id="siteNotice">'+
-                                    '</div>'+
-                                    '<h3 id="firstHeading" class="firstHeading">'+markers[i][1]+'</h3>'+
-                                    '<div id="bodyContent">'+
-                                    '<p></p>'
-                                    '</div>'+
-                                    '</div>';
+                                    var content=markers[i][1];
+                                ;
 
                                     var marker= new google.maps.Marker({
                                         position: {lat: markers[i][2], lng: markers[i][3]},
