@@ -34,7 +34,7 @@
                 //alert('ss');
             }else{
 
-                updates(arr[0],arr[2],arr[3]);
+                update();
             }
 
         });
@@ -109,11 +109,9 @@
                                         //init_Map(longitude,latitude);
                                     }
 
-                                    function updates(id,longitude,latitude){
-                                        //alert('dddd');
-                                        //$('#lon'+id).html(longitude);
-                                        //$('#lat'+id).html(latitude);
-                                        //init_Map(longitude,latitude);
+                                    function update(){
+
+                                        init_Map(longitude,latitude);
 
                                     }
                                     </script>
@@ -162,13 +160,13 @@
                                         map: map
                                     });
 
-                                    marker.addListener('click', function() {
+                                    markerSet.push(marker);
+                                    marker.setMap(map);
+
+                                    markerSet[i].addListener('click', function() {
                                         infowindow.open(map, marker);
                                     });
 
-
-                                    markerSet.push(marker);
-                                    marker.setMap(map);
                                 }
 
                             }
