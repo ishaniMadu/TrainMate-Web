@@ -23,9 +23,9 @@
     <script>
     function initSocketIO() {
         iosocket = io.connect();
-
+i=0;
         iosocket.on('updates', function(receivedData) {
-            i=0;
+
             var arr = Object.values(receivedData);
 
             if($('#id'+arr[0]).length==0){
