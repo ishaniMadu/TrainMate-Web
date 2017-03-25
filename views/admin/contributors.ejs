@@ -171,17 +171,17 @@
                                 markerSet[0].setMap(null);
                                 markerSet[0].setPosition({lat: latitude, lng: longitude});
                                 markerSet[0].setMap(map);
-                                //var _kCord = new google.maps.LatLng(-36.874694, 174.735292);
-                                //var _pCord = new google.maps.LatLng(-36.858317, 174.782284);
-                                //var distance=google.maps.geometry.spherical.computeDistanceBetween(_pCord,_kCord);
-                                //$('#js').html(distance);
+                                var _kCord = new google.maps.LatLng(-36.874694, 174.735292);
+                                var _pCord = new google.maps.LatLng(-36.858317, 174.782284);
+                                var distance=google.maps.geometry.spherical.computeDistanceBetween(_pCord,_kCord);
+                                $('#js').html(distance);
                                 //console.log(distance);
                                 //$('#js').html('dd');
 
                             }
 
                             </script>
-                            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaHFhfmh2EbYbXoCsldyTfWbs3thk_Ql0&callback=init_Map" type="text/javascript"></script>
+                            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaHFhfmh2EbYbXoCsldyTfWbs3thk_Ql0&libraries=geometry&callback=init_Map" type="text/javascript"></script>
 
                         </div>
                     </div>
