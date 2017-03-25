@@ -34,7 +34,7 @@
                 add(arr[0],arr[1],arr[2],arr[3]);
                 //alert('ss');
             }else{
-                update();
+                update(arr[0],arr[2],arr[3]);
             }
 
         });
@@ -165,16 +165,13 @@
 
                             }
 
-                            function update(){
+                            function update(id,longitude,latitude){
 
-                                for(i=0;i<markerSet.length;i++){
-                                    markerSet[i].setMap(null);
-                                    markerSet[i].setMap(map);
-                                }
+                                    markerSet[0].setMap(null);
+                                    markerSet[0].setPosition({lat: latitude, lng: longitude});
+                                    markerSet[0].setMap(map);
 
                             }
-
-
 
                             </script>
                             <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaHFhfmh2EbYbXoCsldyTfWbs3thk_Ql0&callback=init_Map" type="text/javascript"></script>
