@@ -168,12 +168,14 @@
 
                             function update(id,longitude,latitude){
 
+                                var current = new google.maps.LatLng(latitude,longitude);
+                                var initial = new google.maps.LatLng(markers[0][2],markers[0][3]);
+
                                 markerSet[0].setMap(null);
-                                markerSet[0].setPosition({lat: latitude, lng: longitude});
+                                markerSet[0].setPosition(current);
                                 markerSet[0].setMap(map);
-                                var _kCord = new google.maps.LatLng(latitude,longitude);
-                                var _pCord = new google.maps.LatLng(markers[0][2],markers[0][3]);
-                                var distance=google.maps.geometry.spherical.computeDistanceBetween(_pCord,_kCord);
+
+                                var distance=google.maps.geometry.spherical.computeDistanceBetween(initial,current);
                                 $('#js').html(distance);
                                 //console.log(distance);
                                 //$('#js').html('dd');
