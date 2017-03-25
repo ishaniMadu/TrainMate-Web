@@ -167,7 +167,7 @@
                             }
 
                             function update(id,longitude,latitude){
-                                
+
                                 markerSet[0].setMap(null);
                                 markerSet[0].setPosition({lat: latitude, lng: longitude});
                                 markerSet[0].setMap(map);
@@ -175,6 +175,7 @@
                                 var _pCord = new google.maps.LatLng(-36.858317, 174.782284);
                                 var distance=google.maps.geometry.spherical.computeDistanceBetween(_pCord,_kCord);
                                 $('#js').html(distance);
+                                console.log(distance);
                                 //$('#js').html('dd');
 
                             }
