@@ -176,7 +176,7 @@
                                 markerSet[0].setMap(map);
 
                                 var distance=google.maps.geometry.spherical.computeDistanceBetween(initial,current);
-                                $('#js').html(latitude);
+                                $('#js').html((latitude-markers[0][2]));
                                 //console.log(distance);
                                 //$('#js').html('dd');
 
