@@ -79,7 +79,7 @@
             <!-- end breadcrumb -->
 
             <h1 id="js" class="page-header">Contributors</h1>
-            <button type="button" class="btn btn-success" onclick="init_Map()">Show on Map</button>
+            <button type="button" class="btn btn-success" onclick="initMap()">Show on Map</button>
 
             <div class="row">
                 <!-- begin col-12 -->
@@ -133,7 +133,7 @@
                             }
 
 
-                            function init_Map() {
+                            function initMap() {
 
                                 map = new google.maps.Map(document.getElementById('map'), {
                                     zoom: 12,
@@ -172,8 +172,8 @@
                                 markerSet[0].setMap(null);
                                 markerSet[0].setPosition({lat: latitude, lng: longitude});
                                 markerSet[0].setMap(map);
-                                var _kCord = new google.maps.LatLng(-36.874694, 174.735292);
-                                var _pCord = new google.maps.LatLng(-36.858317, 174.782284);
+                                //var _kCord = new google.maps.LatLng(-36.874694, 174.735292);
+                                //var _pCord = new google.maps.LatLng(-36.858317, 174.782284);
                                 //var distance=google.maps.geometry.spherical.computeDistanceBetween(_pCord,_kCord);
                                 //$('#js').html(distance);
                                 //console.log(distance);
