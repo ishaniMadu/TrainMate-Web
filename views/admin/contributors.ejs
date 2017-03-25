@@ -171,9 +171,9 @@
                                     markerSet[0].setMap(null);
                                     markerSet[0].setPosition({lat: latitude, lng: longitude});
                                     markerSet[0].setMap(map);
-                                    //var distance=computeDistanceBetween({lat: latitude, lng: longitude},{lat: markers[0][2], lng: markers[0][3]});
-                                    //$('#js').html(distance);
-                                        $('#js').html('dd');
+                                    var distance=computeDistanceBetween({lat: latitude, lng: longitude},{lat: markers[0][2], lng: markers[0][3]});
+                                    $('#js').html(distance);
+                                        //$('#js').html('dd');
 
                             }
 
