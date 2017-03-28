@@ -106,7 +106,7 @@ function initSocketIO(httpServer,debug)
         socket.on('message', function(data) {
             console.log(data);
             socketServer.emit('updates',data);
-            socketServer.emit('updates1',data);
+            //socketServer.emit('updates1',data);
 
         });
 
