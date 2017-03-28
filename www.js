@@ -107,7 +107,12 @@ function initSocketIO(httpServer,debug)
             console.log(data);
             socketServer.emit('updates',data);
             //socketServer.emit('updates1',data);
+            
+        });
 
+        socket.on('disconnect',function(){
+            clearInterval(interval);
+            console.log('Server has disconnected');
         });
 
     });
