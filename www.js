@@ -88,13 +88,16 @@ function onListening() {
     debug('Listening on ' + bind);
 }
 
-var socketServer;
+var socketServer,socketServer1;
 
 function initSocketIO(httpServer,debug)
 {
     socketServer = socketio.listen(httpServer);
+    //socketServer1= socketio.listen(httpServer);
     if(debug == false){
-        socketServer.set('log level', 1); // socket IO debug off
+        socketServer.set('log level', 1);
+        //socketServer1.set('log level', 1);
+        // socket IO debug off
     }
 
     socketServer.on('connection', function (socket) {
@@ -103,8 +106,10 @@ function initSocketIO(httpServer,debug)
         socket.on('message', function(data) {
             console.log(data);
             socketServer.emit('updates',data);
+            socketServer.emit('updates1',data);
 
         });
 
     });
+
 }

@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
     <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-    <script src="http://trainmate18.azurewebsites.net:80/socket.io/socket.io.js"></script>
+    <script src="http://localhost:80/socket.io/socket.io.js"></script>
 
     <script>
 
@@ -40,6 +40,10 @@
             }
 
         });
+
+            iosocket.on('updates1', function(receivedData) {
+                console.log('ok');
+            });
 
     }
 
@@ -172,11 +176,15 @@
                                 var current = new google.maps.LatLng(latitude,longitude);
                                 var initial = new google.maps.LatLng(markers[0][2],markers[0][3]);
 
-                                markerSet[0].setMap(null);
-                                markerSet[0].setPosition(current);
-                                markerSet[0].setMap(map);
+                                //for(i=0;i<markers.length;i++){
+                                //    if(id==markers[i][0]){
+                                        markerSet[0].setMap(null);
+                                        markerSet[0].setPosition(current);
+                                        markerSet[0].setMap(map);
+                                //    }
+                                //}
 
-                                var distance=google.maps.geometry.spherical.computeDistanceBetween(initial,current);
+                                //var distance=google.maps.geometry.spherical.computeDistanceBetween(initial,current);
                                 //$('#js').html(distance);
                                 //console.log(distance);
                                 //$('#js').html('dd');
